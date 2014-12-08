@@ -1,0 +1,7 @@
+// Mixins
+// zebra - zebra stripes mixin.
+zebra(even=#efefef, odd=#dfdfdf, child='&')
+	{child}:nth-child(even)
+		background-color even
+	{child}:nth-child(odd)
+		background-color odd
