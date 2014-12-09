@@ -113,7 +113,11 @@ button.navbar-toggle[aria-expanded="true"] span:nth-child(4) {
 .nav-container li:hover {
   padding-left: 1rem;
 }
+.main-content {
+  height: 70vh;
+}
 .main-content .listing {
+  margin: auto;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: solid 1px #ffc0cb;
@@ -207,6 +211,12 @@ button.navbar-toggle[aria-expanded="true"] span:nth-child(4) {
     position: absolute;
   }
   .main-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
     float: left;
     clear: left;
     margin-top: 9rem;
