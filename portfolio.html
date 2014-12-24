@@ -139,51 +139,63 @@
     </label>
 
 </form>
-
-<div class="carousel-wrapper" tabindex="0">
-    <div class="cs3-carousel">
-        <form class="slide-container" name="slide-viewer" method="post" action="./">
-            <ul class="slide-navbar">
-                <li class="slide">
-                    <input type="radio" class="slide-selector" name="slide-viewer-slides" tabindex="1" id="slides-00" checked="checked" />
-                    <label for="slides-00" class="slide-selector-indicator"><!-- / --></label>
-                    <section class="slide-content photo-1">
-                        <h1>Photo Slider</h1>
-                    </section>
-                </li>
-                <li class="slide">
-                    <input type="radio" class="slide-selector" name="slide-viewer-slides" tabindex="2" id="slides-01" />
-                    <label for="slides-01" class="slide-selector-indicator"><!-- / --></label>
-                    <section class="slide-content photo-2">                        
-                    </section>
-                </li>
-                <li class="slide">
-                    <input type="radio" class="slide-selector" name="slide-viewer-slides" tabindex="3" id="slides-02" />
-                    <label for="slides-02" class="slide-selector-indicator"><!-- / --></label>
-                    <section class="slide-content photo-3">                        
-                    </section>
-                </li>
-                <li class="slide">
-                    <input type="radio" class="slide-selector" name="slide-viewer-slides" tabindex="4" id="slides-03" />
-                    <label for="slides-03" class="slide-selector-indicator"><!-- / --></label>
-                    <section class="slide-content photo-4">                        
-                    </section>
-                </li>
-                <li class="slide">
-                    <input type="radio" class="slide-selector" name="slide-viewer-slides" tabindex="4" id="slides-04" />
-                    <label for="slides-04" class="slide-selector-indicator"><!-- / --></label>
-                    <section class="slide-content photo-5">                        
-                    </section>
-                </li>
-                <li class="slide">
-                    <input type="radio" class="slide-selector" name="slide-viewer-slides" tabindex="5" id="slides-05" />
-                    <label for="slides-05" class="slide-selector-indicator"><!-- / --></label>
-                    <section class="slide-content photo-6">                        
-                    </section>
-                </li>
-            </ul>
-        </form>
-    </div>
+</p>
+<h2 id="photo-slider">Photo Slider</h2>
+<p>
+<div class="cs3-wrapper">
+  <div class="cs3-carousel">
+    <form method="post" action="./" class="slide-container">
+      <fieldset class="slide">
+        <!-- NB: input name attribute must all have same name to be mutually exclusive.-->
+        <input type="radio" name="slide-select" id="slide-01" checked="checked" class="slide-selector"/>
+        <label for="slide-01" class="slide-selector-indicator"></label>
+        <figure class="first slide-content">
+          <label for="slide-06" class="prev">&#x2039</label><img src="./images/hawaii-1.jpg"/>
+          <label for="slide-02" class="next">&#x203a</label>
+        </figure>
+      </fieldset>
+      <fieldset class="slide">
+        <input type="radio" name="slide-select" id="slide-02" class="slide-selector"/>
+        <label for="slide-02" class="slide-selector-indicator"></label>
+        <figure class="second slide-content">
+          <label for="slide-01" class="prev">&#x2039</label><img src="./images/hawaii-2.jpg"/>
+          <label for="slide-03" class="next">&#x203a</label>
+        </figure>
+      </fieldset>
+      <fieldset class="slide">
+        <input type="radio" name="slide-select" id="slide-03" class="slide-selector"/>
+        <label for="slide-03" class="slide-selector-indicator"></label>
+        <figure class="third slide-content">
+          <label for="slide-02" class="prev">&#x2039</label><img src="./images/hawaii-3.jpg"/>
+          <label for="slide-04" class="next">&#x203a</label>
+        </figure>
+      </fieldset>
+      <fieldset class="slide">
+        <input type="radio" name="slide-select" id="slide-04" class="slide-selector"/>
+        <label for="slide-04" class="slide-selector-indicator"></label>
+        <figure class="fourth slide-content">
+          <label for="slide-03" class="prev">&#x2039</label><img src="./images/hawaii-4.jpg"/>
+          <label for="slide-05" class="next">&#x203a</label>
+        </figure>
+      </fieldset>
+      <fieldset class="slide">
+        <input type="radio" name="slide-select" id="slide-05" class="slide-selector"/>
+        <label for="slide-05" class="slide-selector-indicator"></label>
+        <figure class="fifth slide-content">
+          <label for="slide-04" class="prev">&#x2039</label><img src="./images/hawaii-5.jpg"/>
+          <label for="slide-06" class="next">&#x203a</label>
+        </figure>
+      </fieldset>
+      <fieldset class="slide">
+        <input type="radio" name="slide-select" id="slide-06" class="slide-selector"/>
+        <label for="slide-06" class="slide-selector-indicator"></label>
+        <figure class="sixth slide-content">
+          <label for="slide-05" class="prev">&#x2039</label><img src="./images/autumn.jpg"/>
+          <label for="slide-01" class="next">&#x203a</label>
+        </figure>
+      </fieldset>
+    </form>
+  </div>
 </div></p>
 
 	</section>
@@ -206,6 +218,52 @@
     <li><em> Column 3-2 </em></li>
 </ul>
 	</footer>
+	<script >(function(){
+	/* Did we just livereload? */
+var log = !!(localStorage && console && console.log && true);
+if ( log && localStorage.getItem('/docpad-livereload/reloaded') === 'yes' ) {
+	localStorage.removeItem('/docpad-livereload/reloaded');
+	console.log('LiveReload completed at', new Date())
+}
+
+/* Listen for the regenerated event and perform a reload of the page when the event occurs */
+var listen = function(){
+	var primus = new Primus('/docpad-livereload');
+	primus.on('data', function(data){
+		if ( data && data.message ) {
+			if ( data.message === 'generateBefore' ) {
+				if ( log ) {
+					console.log('LiveReload started at', new Date());
+				}
+				if ( typeof document.getElementsByTagName !== 'undefined' ) {
+	document.getElementsByTagName('html')[0].className += ' wait';
+}
+			}
+			else if ( data.message === 'generateAfter' ) {
+				if ( log ) {
+					localStorage.setItem('/docpad-livereload/reloaded', 'yes');
+				}
+				document.location.reload();
+			}
+		}
+	});
+};
+	/* Inject socket into our page */
+var inject = function(){
+	var t = document.createElement('script');
+	t.type = 'text/javascript';
+	t.async = 'async';
+	t.src = '/primus/primus.js';
+	t.onload = listen;
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(t, s);
+};
+	if ( typeof Primus !== 'undefined' ) {
+		listen();
+	} else {
+		inject();
+	}
+})();</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>

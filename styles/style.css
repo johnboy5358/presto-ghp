@@ -168,152 +168,192 @@ form.tabs label {
   -webkit-border-radius: 10px 10px 0px 0px;
   border-radius: 10px 10px 0px 0px;
 }
-.carousel-wrapper {
-  position: relative;
-  width: 50vw;
-  height: 50vh;
-  margin-left: 25%;
-  margin-bottom: 50vh;
-}
 .cs3-carousel {
-  counter-reset: slide;
-  font-family: TeXGyreAdventorRegular Arial Sans-serif;
-  background: #fff;
+  background-color: #dfdfdf;
 }
 .cs3-carousel .slide-container,
+.cs3-carousel .slide,
 .cs3-carousel .slide-content,
-.cs3-carousel .slide-selector,
-.cs3-carousel .slide-content::before {
+.cs3-carousel .slide-content img,
+.cs3-carousel .slide-selector-indicator {
   position: absolute;
 }
-.cs3-carousel .slide-selector,
-.cs3-carousel .slide-content {
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-}
 .cs3-carousel .slide-container,
+.cs3-carousel .slide,
 .cs3-carousel .slide-content {
-  top: -50px;
+  top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
+  bottom: 0;
 }
-.cs3-carousel .slide,
-.cs3-carousel .slide-selector-indicator {
-  width: 12px;
-  height: 12px;
-}
-.cs3-carousel .slide-selector-indicator,
-.cs3-carousel .slide-selector-indicator::before {
-  display: block;
-}
-.cs3-carousel .slide,
-.cs3-carousel .slide-content::before {
-  display: inline-block;
-}
-.cs3-carousel .slide-content {
-  visibility: hidden;
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-  background-attachment: scroll;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-}
-.cs3-carousel .slide {
-  padding: 1px;
-  margin: 1px;
+.cs3-carousel .slide-content img {
+  width: 100%;
+  height: 100%;
 }
 .cs3-carousel .slide-selector-indicator {
-  position: relative;
-  border: solid 1px #3c8cd3;
-  cursor: pointer;
-  z-index: 15;
-  top: -40px;
-}
-.cs3-carousel .slide-selector-indicator::before {
-  content: "";
-  margin: 1px;
-  height: 8px;
   width: 6px;
+  height: 10px;
+  top: 3%;
+  z-index: 9999;
+  background-color: #fff;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: -webkit-transform 1s;
+  -moz-transition: -moz-transform 1s;
+  -o-transition: -o-transform 1s;
+  -ms-transition: -ms-transform 1s;
+  transition: transform 1s;
 }
-.cs3-carousel .slide-selector:checked ~ .slide-selector-indicator::before,
-.cs3-carousel .slide-selector:not(:checked) ~ .slide-selector-indicator:hover::before {
-  background: #3c8cd3;
-}
-.cs3-carousel .slide-selector:not(:checked) ~ .slide-selector-indicator:hover::before {
-  opacity: 0.6;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-  filter: alpha(opacity=60);
+.cs3-carousel .slide-selector-indicator:hover {
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  cursor: pointer;
+  background-color: #5882f1;
 }
 .cs3-carousel .slide-container {
-  -webkit-box-shadow: 0 4px 13px 5px rgba(0,0,0,0.2);
-  box-shadow: 0 4px 13px 5px rgba(0,0,0,0.2);
-rgba(0,0,0,0.15)
+  -webkit-perspective: 8000px;
+  -moz-perspective: 8000px;
+  -ms-perspective: 8000px;
+  perspective: 8000px;
+  -webkit-transform-style: flat;
+  -moz-transform-style: flat;
+  -o-transform-style: flat;
+  -ms-transform-style: flat;
+  transform-style: flat;
 }
-.slide-content {
-  padding: 16px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  text-align: left;
-  z-index: 5;
-  -moz-transition: all 500ms 10ms ease-in;
-  -webkit-transition: all 500ms 10ms ease-in;
-  -ms-transition: all 500ms 10ms ease-in;
-  -o-transition: all 500ms 10ms ease-in;
-  -webkit-transition: all 500ms 10ms ease-in;
-  -moz-transition: all 500ms 10ms ease-in;
-  -o-transition: all 500ms 10ms ease-in;
-  -ms-transition: all 500ms 10ms ease-in;
-  transition: all 500ms 10ms ease-in;
+.cs3-carousel .slide-content {
+  z-index: 10;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transform: scale(0.3) rotate3d(1, 1, 0, 150deg);
+  -moz-transform: scale(0.3) rotate3d(1, 1, 0, 150deg);
+  -o-transform: scale(0.3) rotate3d(1, 1, 0, 150deg);
+  -ms-transform: scale(0.3) rotate3d(1, 1, 0, 150deg);
+  transform: scale(0.3) rotate3d(1, 1, 0, 150deg);
+  -webkit-transition: all 3s ease;
+  -moz-transition: all 3s ease;
+  -o-transition: all 3s ease;
+  -ms-transition: all 3s ease;
+  transition: all 3s ease;
 }
-.slide-content::before {
-  counter-increment: slide;
-  content: "Slide " counter(slide);
-  top: 6px;
-  right: 6px;
-  padding: 6px;
-  font-size: 14px;
-  line-height: 14px;
-  background: #3c8cd3;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
+.cs3-carousel .slide-content label {
+  position: absolute;
+  background-color: rgba(255,255,255,0.3);
+  z-index: 99;
+  width: 15%;
+  height: 100%;
+  font-size: 900%;
+  line-height: 350%;
+  font-family: "Varela Round" sans-serif;
+  cursor: pointer;
+  text-align: center;
   color: #fff;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
-.slide-selector:checked ~ .slide-content {
+.cs3-carousel .slide-content label.prev {
+  left: 0;
+}
+.cs3-carousel .slide-content label.next {
+  right: 0;
+}
+.cs3-carousel input:checked ~ .slide-content {
+  z-index: 999;
   opacity: 1;
   -ms-filter: none;
   filter: none;
-  visibility: visible;
+  -webkit-transform: scale(1) rotate3d(1, 1, 0, 0deg);
+  -moz-transform: scale(1) rotate3d(1, 1, 0, 0deg);
+  -o-transform: scale(1) rotate3d(1, 1, 0, 0deg);
+  -ms-transform: scale(1) rotate3d(1, 1, 0, 0deg);
+  transform: scale(1) rotate3d(1, 1, 0, 0deg);
+  -webkit-transition: all 1.5s 1.5s ease;
+  -moz-transition: all 1.5s 1.5s ease;
+  -o-transition: all 1.5s 1.5s ease;
+  -ms-transition: all 1.5s 1.5s ease;
+  transition: all 1.5s 1.5s ease;
 }
-.slide-navbar {
-  width: 100%;
-  height: 100%;
-  text-align: center;
+.cs3-carousel input:checked ~ .slide-content label:hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
-.slide-selector-indicator {
-  background-color: #fff;
+.cs3-carousel input:checked + .slide-selector-indicator {
+  background-color: #3c8cd3;
 }
-.photo-1 h1 {
-  margin-top: 10%;
+.second.slide-content {
+  -webkit-transform: scale(0.1);
+  -moz-transform: scale(0.1);
+  -o-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  transform: scale(0.1);
 }
-.photo-2 {
-  background-image: url("../images/hawaii-1.jpg");
+.third.slide-content {
+  -webkit-transform: rotateX(90deg);
+  -moz-transform: rotateX(90deg);
+  -o-transform: rotateX(90deg);
+  -ms-transform: rotateX(90deg);
+  transform: rotateX(90deg);
 }
-.photo-3 {
-  background-image: url("../images/hawaii-2.jpg");
+.fourth.slide-content {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  transform: rotateX(180deg);
 }
-.photo-4 {
-  background-image: url("../images/hawaii-3.jpg");
+.fifth.slide-content {
+  -webkit-transform: rotateY(85deg);
+  -moz-transform: rotateY(85deg);
+  -o-transform: rotateY(85deg);
+  -ms-transform: rotateY(85deg);
+  transform: rotateY(85deg);
 }
-.photo-5 {
-  background-image: url("../images/hawaii-4.jpg");
+.sixth.slide-content {
+  -webkit-transform: rotateY(90deg);
+  -moz-transform: rotateY(90deg);
+  -o-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  transform: rotateY(90deg);
 }
-.photo-6 {
-  background-image: url("../images/autumn.jpg");
+.slide:nth-child(1) .slide-selector-indicator {
+  left: 45%;
+}
+.slide:nth-child(2) .slide-selector-indicator {
+  left: 47%;
+}
+.slide:nth-child(3) .slide-selector-indicator {
+  left: 49%;
+}
+.slide:nth-child(4) .slide-selector-indicator {
+  left: 51%;
+}
+.slide:nth-child(5) .slide-selector-indicator {
+  left: 53%;
+}
+.slide:nth-child(6) .slide-selector-indicator {
+  left: 55%;
+}
+.cs3-carousel {
+  position: relative;
+  width: 65rem;
+  height: 36rem;
+}
+.cs3-carousel input {
+  display: none;
 }
 .navbar-header {
   width: 20%;
@@ -360,7 +400,7 @@ rgba(0,0,0,0.15)
   padding-left: 1em;
 }
 form.tabs {
-  margin-bottom: 10%;
+  margin-bottom: 0%;
 }
 @media (min-width: 768px) {
   body,
@@ -460,6 +500,11 @@ form.tabs {
   }
   #site-footer ul li {
     text-align: center;
+  }
+  .cs3-carousel {
+    margin-top: 5rem;
+    margin: auto;
+    margin-bottom: 10rem;
   }
 }
 #menu-item-1 {
